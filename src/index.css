@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --nav-header-border-color: #cbd5e1;
+    --nav-text: #ffffff;
+    --nav-text-selection: #1e293b;
+    --nav-text-selection-bg: #fdba74;
+    --nav-bg: #1e293b;
+    --nav-hover: #fb923c;
+
+    --btn-text: #ffffff;
+    --btn-pry: #0369a1;
+    --btn-sec: #059669;
+    --btn-info: #06b6d4;
+    --btn-warn: #f59e0b;
+    --btn-dng: #e11d48;
+    --btn-text-hover: #ffffff;
+    --btn-pry-hover: #0284c7;
+    --btn-sec-hover: #10b981;
+    --btn-info-hover: #22d3ee;
+    --btn-warn-hover: #d97706;
+    --btn-dng-hover: #f43f5e;
+  }
+
+  * {
+    @apply transition duration-300 ease-linear selection:text-nav-selection selection:bg-nav-selection
+  }
+
+  .theme-dark-orange {
+    --nav-header-border-color: #cbd5e1;
+    --nav-text: #ffffff;
+    --nav-text-selection: #1e293b;
+    --nav-text-selection-bg: #fdba74;
+    --nav-bg: #1e293b;
+    --nav-hover: #fb923c;
+  }
+
+  .theme-red {
+    --nav-header-border-color: #fecdd3;
+    --nav-text: #ffffff;
+    --nav-text-selection: #881337;
+    --nav-text-selection-bg: #fda4af;
+    --nav-bg: #881337;
+    --nav-hover: #be123c;
+  }
+
+  .theme-emerald {
+    --nav-header-border-color: #a7f3d0;
+    --nav-text: #ffffff;
+    --nav-text-selection: #065f46;
+    --nav-text-selection-bg: #6ee7b7;
+    --nav-bg: #064e3b;
+    --nav-hover: #059669;
+  }
+
+  .theme-test {
+    --nav-header-border-color: #a5f3fc;
+    --nav-text: #ffffff;
+    --nav-text-selection: #312e81;
+    --nav-text-selection-bg: #67e8f9;
+    --nav-bg: #365314;
+    --nav-hover: #3f6212;
+  }
+}
+
+body {
+  @apply bg-slate-100;
+}
+
+.active {
+  @apply bg-nav-hover
+}
