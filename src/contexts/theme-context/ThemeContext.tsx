@@ -6,7 +6,8 @@ type Props = {
 }
 
 export const ThemeContext = React.createContext<ThemeType>({
-  theme: 'theme-dark-orange'
+  updateTheme: () => {},
+  restoreDefault: () => {}
 })
 
 export const useTheme = () => useContext(ThemeContext)
@@ -14,26 +15,25 @@ export const useTheme = () => useContext(ThemeContext)
 const ThemeProvider = ({children}: Props) => {
   const [theme, setTheme] = useState('')
 
-  const defaultTheme = () => {
-    setTheme('theme-dark-orange')
-    return theme
+  const updateTheme = (theme: string) => {
+    setTheme(currentTheme => {
+      window.localStorage.setItem('theme', theme)
+      return currentTheme = theme
+    })
   }
 
-  const redTheme = () => {
-    setTheme('theme-red')
-    return theme
+  const restoreDefault = () => {
+    setTheme(currentTheme => {
+      window.localStorage.removeItem('theme')
+      return currentTheme = ''
+    })
   }
-
-  const emeraldTheme = () => {
-    setTheme('theme-emerald')
-    return theme
-  }
+  
 
   const value = {
     theme,
-    defaultTheme,
-    redTheme,
-    emeraldTheme
+    updateTheme,
+    restoreDefault
   }
   return (
     <ThemeContext.Provider value={value}>
